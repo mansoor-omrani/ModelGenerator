@@ -1,0 +1,12 @@
+﻿@using ModelGenerator.Models
+@model ModelConfig
+namespace @Model.Namespace
+{
+    public partial class @Model.Name@((!string.IsNullOrEmpty(Model.Parent)) ? " : " + Model.Parent : "")
+    {
+	    @foreach (var property in Model.Properties)
+	    {
+        <text>public @((property.Virtual)?"virtual":"") @property.Type @property.Name { get; set; }</text>
+	    }
+    }
+}
